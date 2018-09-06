@@ -102,3 +102,16 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+################### custom ######################
+private_settings.py
+**/.idea/
+db.sqlite3
+**/temp_sessions/
+.vscode
+**/bundled_static/dev/*
+**/media/images/*
+**/media/pdf/*
+**/media/portrait/*/*
+**/media/document_thumbnails/*
