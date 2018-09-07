@@ -2,6 +2,7 @@ from django.conf.urls import include, url
 
 from . import views
 
-urlpatterns = [  # new UI with react and restful APIs
+urlpatterns = [
+    url(r'^api/', include('main.api.urls')),
     url(r'^$', views.display_index),
 ]
