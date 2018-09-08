@@ -10,7 +10,7 @@ import 'antd-mobile/dist/antd-mobile.css'
 import { CustomNavBar } from './components/navbar.jsx'
 import { LocaleProvider, List, Badge } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US'
-import { UserTab } from './components/user_tab.jsx'
+import { UserTab } from './components/user_tab2.jsx'
 
 class App extends Component {
   constructor(props){

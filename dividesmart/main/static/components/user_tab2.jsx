@@ -1,6 +1,8 @@
 import React from 'react'
-import { List, Badge, WhiteSpace, Button, WingBlank } from 'antd-mobile';
+import {List, Badge, WhiteSpace, Button, WingBlank, Checkbox} from 'antd-mobile';
 
+const Item = List.Item;
+const Brief = Item.Brief;
 class UserTab extends React.Component {
   constructor() {
     super()
@@ -71,7 +73,35 @@ class UserTab extends React.Component {
 
 
         </List>
-
+        <List>
+          <Item
+            arrow="horizontal"
+            thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+            multipleLine
+            onClick={() => {}}
+            extra={'$10'}
+          >
+            Harry <Brief>8/31/18</Brief>
+          </Item>
+          <Item
+            arrow="horizontal"
+            thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+            multipleLine
+            onClick={() => {}}
+            extra={'$10'}
+          >
+            Charlie <Brief>8/31/18</Brief>
+          </Item>
+          <Item
+            arrow="horizontal"
+            thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+            multipleLine
+            onClick={() => {}}
+            extra={'$10'}
+          >
+            Oscar <Brief>8/31/18</Brief>
+          </Item>
+        </List>
         <WhiteSpace />
         <WhiteSpace />
         <WhiteSpace />
@@ -85,6 +115,7 @@ class UserTab extends React.Component {
           <Button>Create Debt</Button>
         </WingBlank> */}
       </div>
+
     )
   }
 }
