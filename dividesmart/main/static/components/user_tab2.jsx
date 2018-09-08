@@ -73,6 +73,9 @@ class UserTab extends React.Component {
 
 
         </List>
+        <List renderHeader={() => 'Debt List with Tom'} className="my-list">
+        <Item extra={'Debt'}>Date</Item>
+      </List>
         <List>
           <Item
             arrow="horizontal"
@@ -81,33 +84,40 @@ class UserTab extends React.Component {
             onClick={() => {}}
             extra={'$10'}
           >
-            Harry <Brief>8/31/18</Brief>
+            Lunch @ PGP<Brief>8/29/18</Brief>
           </Item>
           <Item
             arrow="horizontal"
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'$10'}
+            extra={'-$10'}
           >
-            Charlie <Brief>8/31/18</Brief>
+            Movie Night<Brief>8/30/18</Brief>
           </Item>
           <Item
             arrow="horizontal"
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'$10'}
+            extra={'$20'}
           >
-            Oscar <Brief>8/31/18</Brief>
+            Dinner Date <Brief>8/31/18</Brief>
+          </Item>
+          <Item
+            arrow="horizontal"
+            // thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+            multipleLine
+            onClick={() => {}}
+            extra={'$20'}
+          >
+             <Brief>Overall</Brief>
           </Item>
         </List>
         <WhiteSpace />
         <WhiteSpace />
         <WhiteSpace />
-        <WingBlank>
-          <Button type="primary">Add Friend</Button>
-        </WingBlank>
+
 
         {/* <WhiteSpace />
         <WhiteSpace />
