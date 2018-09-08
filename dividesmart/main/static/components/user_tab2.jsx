@@ -22,7 +22,7 @@ class UserTab extends React.Component {
                   display: 'inline-block' }}
               />
             </Badge>
-            <span style={{ marginLeft: 12 }}>Tom</span>
+            <span style={{ marginLeft: 12 }}>Harry</span>
           </List.Item>
           {/* <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
