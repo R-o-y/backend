@@ -91,7 +91,7 @@ class UserTab extends React.Component {
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'-$10'}
+            extra={'-$5'}
           >
             Movie Night<Brief>8/30/18</Brief>
           </Item>
@@ -100,7 +100,7 @@ class UserTab extends React.Component {
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'$20'}
+            extra={'$15'}
           >
             Dinner Date <Brief>8/31/18</Brief>
           </Item>

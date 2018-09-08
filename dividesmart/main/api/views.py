@@ -13,7 +13,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.views.generic import View
 
-from main.models import User
+from ..models import User, Group, Exchange, Debt
 
 from PIL import Image
 import pytesseract
@@ -39,11 +39,6 @@ def get_friends_list(request):
 def get_debts_list(request):
     user = get_user(request)
     result_list = list(user.debts.filter(clear=False))
-    # debts = list(user.debts)
-    # result_list = []
-    # for debt in debts:
-    #     if not debt.clear:
-    #         result_list.append(debt)
     data = {
         'debts': result_list
     }
@@ -61,115 +56,107 @@ def get_groups_list(request):
 
 def get_all_lends(request):
     user = get_user(request)
-    debts = user.debts
-    result_list = []
-    for debt in debts:
-        if (not debt.clear) and debt.lender == user:
-            result_list.append(debt)
+    debts = user.debts.filter(Q(clear=False) & Q(lender=user))
     data = {
-        'lends': list(result_list)
+        'lends': list(debts)
     }
     return JsonResponse(data)
 
 
 def get_all_borrows(request):
     user = get_user(request)
-    debts = user.debts
-    result_list = []
-    for debt in debts:
-        if (not debt.clear) and debt.borrower == user:
-            result_list.append(debt)
+    debts = user.debts.filter(Q(clear=False) & Q(borrower=user))
     data = {
-        'borrows': list(result_list)
+        'borrows': list(debts)
     }
     return JsonResponse(data)
 
 
 def get_friend_lends(request):
     user = get_user(request)
-    friend_pk = request.GET['pk']
-    friend = User.objects.filter(id = friend_pk)
-    debts = user.debts
-    result_list = []
-    for debt in debts:
-        if (not debt.clear) and debt.lender == user and debt.borrower == friend:
-            result_list.append(debt)
+    friend_pk = request.GET['friend_pk']
+    friend = User.objects.filter(id=friend_pk)
+    debts = user.debts.filter(Q(clear=False) & Q(borrower=friend) & Q(lender=user))
     data = {
-        'friend_lends': list(result_list)
+        'friend_lends': list(debts)
     }
     return JsonResponse(data)
 
 
 def get_friend_borrows(request):
     user = get_user(request)
-    friend_pk = request.GET['pk']
+    friend_pk = request.GET['friend_pk']
     friend = User.objects.filter(id=friend_pk)
-    debts = user.debts
-    result_list = []
-    for debt in debts:
-        if (not debt.clear) and debt.borrower == user and debt.lender == friend:
-            result_list.append(debt)
+    debts = user.debts.filter(Q(clear=False) & Q(lender=friend) & Q(borrower=user))
     data = {
-        'friend_borrows': list(result_list)
+        'friend_borrows': list(debts)
     }
     return JsonResponse(data)
 
 
 def get_group_debts(request):
-    group_pk = request.GET['pk']
-    group = Group.objects.filter(id = group_pk)
-    debts = group.debts
+    group_pk = request.GET['group_pk']
+    group = Group.objects.filter(id=group_pk)
+    debts = group.debts.all()
     data = {
-        'debts': debts
+        'debts': list(debts)
     }
     return JsonResponse(data)
 
 
 def create_group(request):
-    name = request.GET['name']
+    name = request.POST['name']
     creator = get_user(request)
     group = Group()
     group.name = name
     group.creator = creator
+    group.save()
+    return HttpResponse()
 
 
 def add_group_member(request):
-    member_pk = request.GET['member_pk']
-    member = User.objects.filter(id = member_pk)
-    group_pk = request.GET['group_pk']
-    group = Group.objects.filter(id = group_pk)
-    group.members.append(member)
+    member_pk = request.POST['member_pk']
+    member = User.objects.filter(id=member_pk)
+    group_pk = request.POST['group_pk']
+    group = Group.objects.filter(id=group_pk)
+    group.members.add(member)
+    return HttpResponse()
 
 
 def create_debt(request):
-    lender_pk = request.GET['lender_pk']
-    lender = User.objects.filter(id = lender_pk)
-    borrower_pk = request.GET['borrower_pk']
-    borrower = User.objects.filter(id = borrower_pk)
-    amount = request.GET['amount']
+    lender_pk = request.POST['lender_pk']
+    lender = User.objects.filter(id=lender_pk)
+    borrower_pk = request.POST['borrower_pk']
+    borrower = User.objects.filter(id=borrower_pk)
+    amount = request.POST['amount']
     debt = Debt()
     debt.amount = amount
     debt.lender = lender
     debt.borrower = borrower
-    group_pk = request.GET['group_pk']
-    if group_pk != null:
-        group = Group.objects.filter(id = group_pk)
-        group.debts.append(debt)
+    debt.save()
+    group_pk = request.POST['group_pk']
+    if 'group_pk' in request.POST:
+        group = Group.objects.filter(id=group_pk)
+        group.debts.add(debt)
+    return HttpResponse()
 
 
 def return_money(request):
-    debt_pk = request.GET['pk']
-    returned_amount = request.GET['amount']
-    debt = Debt.objects.filter(id = debt_pk)
+    debt_pk = request.POST['debt_pk']
+    returned_amount = request.POST['amount']
+    debt = Debt.objects.filter(id=debt_pk)
     before_amount = debt.amount
     after_amount = before_amount - returned_amount
     debt.amount = after_amount
+    debt.save()
     if after_amount == 0:
         debt.clear = True
     exchange = Exchange()
     exchange.payer = debt.borrower
     exchange.payee = debt.lender
-    exchange.amount = amount
+    exchange.amount = returned_amount
+    exchange.save()
+    return HttpResponse()
 
 
 
