@@ -111,7 +111,7 @@ class UserTab extends React.Component {
             onClick={() => {}}
             extra={'$20'}
           >
-             <Brief>Overall</Brief>
+            <Brief>Overall</Brief>
           </Item>
         </List>
         <WhiteSpace />

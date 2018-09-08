@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^form/$', views.display_form),
     url(r'^qr/$', views.display_qr_scanner),
     url(r'u/(?P<pk>\d+)', views.display_user),
-
+    url(r'u/n/(?P<pk>\d+)', views.display_new_user),
 ]

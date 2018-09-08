@@ -36,7 +36,7 @@ class DebtList extends React.Component {
             </Badge>
           }
           multipleLine
-          onClick={() => {}}
+          onClick={() => { window.location.href = '/u/1'}}
           extra={'$10'}
         >
           {/* <Badge>
@@ -64,7 +64,7 @@ class DebtList extends React.Component {
             </Badge>
           }
           multipleLine
-          onClick={() => {}}
+          onClick={() => { window.location.href = '/u/1'}}
           extra={'$10'}
         >
           Charlie <Brief>8/31/18</Brief>
@@ -83,7 +83,7 @@ class DebtList extends React.Component {
             </Badge>
           }
           multipleLine
-          onClick={() => {}}
+          onClick={() => { window.location.href = '/u/1'}}
           extra={'$10'}
         >
           Oscar <Brief>8/31/18</Brief>
@@ -115,7 +115,7 @@ class DebtList extends React.Component {
             </Badge>
           }
           multipleLine
-          onClick={() => {}}
+          onClick={() => { window.location.href = '/u/1'}}
           extra={'$10'}
         >
           Harry <Brief>8/31/18</Brief>
@@ -134,7 +134,7 @@ class DebtList extends React.Component {
             </Badge>
           }
           multipleLine
-          onClick={() => {}}
+          onClick={() => { window.location.href = '/u/1'}}
           extra={'$10'}
         >
           Charlie <Brief>8/31/18</Brief>
@@ -153,7 +153,7 @@ class DebtList extends React.Component {
             </Badge>
           }
           multipleLine
-          onClick={() => {}}
+          onClick={() => { window.location.href = '/u/1'}}
           extra={'$10'}
         >
           Oscar <Brief>8/31/18</Brief>
