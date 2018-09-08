@@ -56,6 +56,7 @@ def get_groups_list(request):
     }
     return JsonResponse(data)
 
+
 def get_all_lends(request):
     user = get_user(request)
     debts = user.debts
@@ -81,6 +82,7 @@ def get_all_borrows(request):
     }
     return JsonResponse(data)
 
+
 def get_friend_lends(request):
     user = get_user(request)
     friend_pk = request.GET['pk']
@@ -94,6 +96,7 @@ def get_friend_lends(request):
         'friend_lends': list(result_list)
     }
     return JsonResponse(data)
+
 
 def get_friend_borrows(request):
     user = get_user(request)
@@ -109,6 +112,7 @@ def get_friend_borrows(request):
     }
     return JsonResponse(data)
 
+
 def get_group_debts(request):
     group_pk = request.GET['pk']
     group = Group.objects.filter(id = group_pk)
@@ -118,6 +122,7 @@ def get_group_debts(request):
     }
     return JsonResponse(data)
 
+
 def create_group(request):
     name = request.GET['name']
     creator = get_user(request)
@@ -125,12 +130,14 @@ def create_group(request):
     group.name = name
     group.creator = creator
 
+
 def add_group_member(request):
     member_pk = request.GET['member_pk']
     member = User.objects.filter(id = member_pk)
     group_pk = request.GET['group_pk']
     group = Group.objects.filter(id = group_pk)
     group.members.append(member)
+
 
 def create_debt(request):
     lender_pk = request.GET['lender_pk']
