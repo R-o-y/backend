@@ -123,6 +123,7 @@ class Debt(models.Model):
     description = models.TextField(blank=True, null=True)
 
 
+
 class Exchange(models.Model):
     payer = models.ForeignKey(User, related_name="debt_payer", on_delete=models.CASCADE)
     payee = models.ForeignKey(User, related_name="debt_payee", on_delete=models.CASCADE)
