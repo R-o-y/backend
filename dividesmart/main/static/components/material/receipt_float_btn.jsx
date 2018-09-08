@@ -75,15 +75,16 @@ class FlaoatingButton extends React.Component {
         this.setState({
           content: response.data.content
         })
-        console.log(response.data.content)
+        // console.log(response.data.content)
         props.updateReceipt(response.data.content)
 
         var lines = []
         for (var line of response.data.content.split('\n')) {
-          if (line.match(/\d+\.\d+/g))
+          if (line.match(/\d+\.\d+/g)) {
             lines.push(line)
+            console.log(line)
+          }
         }
-        console.log(lines)
       })
     }
   }

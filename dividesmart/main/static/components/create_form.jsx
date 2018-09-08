@@ -78,8 +78,7 @@ class H5NumberInputExample extends React.Component {
         <List>
           <InputItem
             {...getFieldProps('inputtitle2')}
-            placeholder="title can be icon，image or text"
-            extra="$"
+            placeholder="Enter names, emails or phones"
           >
             <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
           </InputItem>
@@ -108,6 +107,7 @@ class H5NumberInputExample extends React.Component {
             clear
             moneyKeyboardAlign="left"
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
+            extra="$"
           >Amount</InputItem>
         </List>
 
