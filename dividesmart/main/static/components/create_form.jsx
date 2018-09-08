@@ -28,8 +28,8 @@ const data2 = [
 ];
 
 const tabs = [
-  { title: 'First Tab' },
-  { title: 'Second Tab' },
+  { title: 'Type' },
+  { title: 'Scan Receipt' },
 ];
 
 
@@ -65,8 +65,6 @@ class H5NumberInputExample extends React.Component {
       })
     }
   }
-
-
 
   render() {
     const { getFieldProps } = this.props.form;
