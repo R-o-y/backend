@@ -8,4 +8,4 @@ pillow
 django-cachalot
 django-memcache-status
 facebook-sdk
-tesseract
+pytesseract

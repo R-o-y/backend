@@ -36,6 +36,7 @@ class CustomNavBar extends React.Component {
               width: '28px',
               height: '28px',
               background: 'url(https://zos.alipayobjects.com/rmsportal/RfxDFanyfhEhOkynbPXizskAQqkPmPkR.png) center center /  21px 21px no-repeat' }}
+              onClick={() => window.location = '/'}
             />
           }
           mode="light"
@@ -77,7 +78,7 @@ class CustomNavBar extends React.Component {
             </Popover>
           }
         >
-          NavBar
+          Name of the Appp
         </NavBar>
       </div>
     )

@@ -13,4 +13,6 @@ urlpatterns = [
     # url(r'signin/facebook$', views.facebook_sign_in),
 
     # url(r'signoff', views.sign_off),
+
+    url(r'ocr', views.parse_receipt)
 ]

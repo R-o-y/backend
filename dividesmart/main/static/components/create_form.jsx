@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { List, InputItem, Card, WingBlank, WhiteSpace, Button, Checkbox, Flex } from 'antd-mobile';
+import { Result, List, InputItem, Icon, Card, WingBlank, WhiteSpace, Button, Checkbox, Flex } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import ReceiptButton from './material/receipt_float_btn.jsx'
 import ListItem from 'antd-mobile/lib/list/ListItem';
@@ -11,6 +11,7 @@ import ListItem from 'antd-mobile/lib/list/ListItem';
 
 const CheckboxItem = Checkbox.CheckboxItem;
 const AgreeItem = Checkbox.AgreeItem;
+const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" style={{ width: 60, height: 60 }} alt="" />;
 
 
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
@@ -22,21 +23,41 @@ if (isIPhone) {
 }
 
 class H5NumberInputExample extends React.Component {
-  state = {
-    type: 'money',
+  constructor(props) {
+    super()
+    this.state = {
+      type: 'money',
+      data: []
+    }
+    this.onChange = () => {
+
+    }
+    this.updateReceipt = (content) => {
+      this.setState({
+        data: [
+          { value: 0, label: 'Fish', price: '10' },
+          { value: 1, label: 'Egg', price: '6' },
+          { value: 2, label: 'Beef', price: '8' },
+        ]
+      })
+    }
   }
 
-  render() {
-    const data = [
-      { value: 0, label: 'Ph.D.' },
-      { value: 1, label: 'Bachelor' },
-      { value: 2, label: 'College diploma' },
-    ];
 
+  render() {
     const { getFieldProps } = this.props.form;
     const { type } = this.state;
     return (
       <div>
+
+        <List>
+          <InputItem
+            {...getFieldProps('inputtitle2')}
+            placeholder="title can be icon，image or text"
+          >
+            <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
+          </InputItem>
+        </List>
         <List>
           <InputItem
             {...getFieldProps('money3')}
@@ -51,27 +72,38 @@ class H5NumberInputExample extends React.Component {
 
         <div>
           <List renderHeader={() => 'CheckboxItem demo'}>
-            {data.map(i => (
-              <CheckboxItem key={i.value} onChange={() => this.onChange(i.value)}>
+            {this.state.data.map(i => (
+              <CheckboxItem key={i.value}
+                onChange={() => this.onChange(i.value)}
+                extra={'$' + i.price}
+              >
                 {i.label}
               </CheckboxItem>
             ))}
-            <CheckboxItem key="disabled" data-seed="logId" disabled defaultChecked multipleLine>
-              Undergraduate<List.Item.Brief>Auxiliary text</List.Item.Brief>
+            <CheckboxItem
+              key="disabled"
+              data-seed="logId" disabled defaultChecked multipleLine>
+              Undergraduate
+              <List.Item.Brief>Auxiliary text</List.Item.Brief>
             </CheckboxItem>
           </List>
-
-          <Flex>
-            <Flex.Item>
-              <AgreeItem data-seed="logId" onChange={e => console.log('checkbox', e)}>
-                Agree <a onClick={(e) => { e.preventDefault(); alert('agree it'); }}>agreement</a>
-              </AgreeItem>
-            </Flex.Item>
-          </Flex>
         </div>
 
 
-        <ReceiptButton />
+        <div className="sub-title">to be settled up</div>
+        <Result
+          img={myImg('HWuSTipkjJRfTWekgTUG')}
+          // title="等待处理"
+          message="to be settled up"
+        />
+
+        <WhiteSpace />
+        <WhiteSpace />
+        <WhiteSpace />
+        <WingBlank>
+          <Button type="primary">SAVE</Button>
+        </WingBlank>
+        <ReceiptButton updateReceipt={this.updateReceipt}/>
         {/* <WingBlank size="lg">
           <WhiteSpace size="lg" />
           <Card>

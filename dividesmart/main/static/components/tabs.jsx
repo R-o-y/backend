@@ -96,7 +96,7 @@ class TabBarExample extends React.Component {
             }}
             data-seed="logId1"
           >
-            {this.renderContent('Koubei')}
+            <DebtList />
           </TabBar.Item>
 
           <TabBar.Item
@@ -124,7 +124,7 @@ class TabBarExample extends React.Component {
               });
             }}
           >
-            {this.renderContent('Friend')}
+            <DebtList />
           </TabBar.Item>
 
           <TabBar.Item
@@ -151,7 +151,7 @@ class TabBarExample extends React.Component {
               });
             }}
           >
-            {this.renderContent('My')}
+            <DebtList />
           </TabBar.Item>
         </TabBar>
       </div>
