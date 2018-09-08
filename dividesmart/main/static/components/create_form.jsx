@@ -78,8 +78,9 @@ class H5NumberInputExample extends React.Component {
           <InputItem
             {...getFieldProps('inputtitle2')}
             placeholder="title can be icon，image or text"
+            extra="$"
           >
-            <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
+            <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '280px', width: '22px' }} />
           </InputItem>
         </List>
 

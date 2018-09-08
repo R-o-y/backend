@@ -3,9 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.contrib.sessions.models import Session
-
-# Register your models here.
-import models
+from . import models
 
 class UserModelAdmin(admin.ModelAdmin):
     list_display = ['id', "nickname", "email_address", "phone", "balance"]

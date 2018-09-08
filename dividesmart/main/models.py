@@ -52,7 +52,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     email_address = models.EmailField(max_length=254, blank=False, null=False, unique=True)
     phone = models.CharField(max_length=20)
-    balance = models.FloatField()
+    balance = models.FloatField(default=0)
 
     # field "password" inherited from AbstractBaseUser
 
@@ -120,6 +120,7 @@ class Debt(models.Model):
     amount = models.FloatField()
     date_created = models.DateTimeField(default=timezone.now)
     clear = models.BooleanField(default=False)
+    description = models.TextField(blank=True, null=True)
 
 
 class Exchange(models.Model):

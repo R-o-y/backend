@@ -15,6 +15,16 @@ from django.views.generic import View
 
 from main.models import User
 
+from PIL import Image
+import pytesseract
+
+
+def parse_receipt(request):
+    receipt = request.FILES['receipt']
+    content = pytesseract.image_to_string(Image.open(receipt))
+    return JsonResponse({
+        'content': content
+    })
 
 def get_friends_list(request):
     user = get_user(request)
@@ -23,6 +33,7 @@ def get_friends_list(request):
         'friends': friends
     }
     return JsonResponse(data)
+
 
 def get_debts_list(request):
     user = get_user(request)
@@ -35,6 +46,7 @@ def get_debts_list(request):
         'debts': result_list
     }
     return JsonResponse(data)
+
 
 def get_groups_list(request):
     user = get_user(request)
@@ -134,6 +146,7 @@ def create_debt(request):
     if group_pk != null:
         group = Group.objects.filter(id = group_pk)
         group.debts.append(debt)
+
 
 def return_money(request):
     debt_pk = request.GET['pk']
