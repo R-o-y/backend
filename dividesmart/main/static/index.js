@@ -11,6 +11,7 @@ import { TabBarExample } from './components/tabs.jsx'
 import 'antd-mobile/dist/antd-mobile.css'
 import { LocaleProvider } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US'
+import axios from 'axios'
 
 class App extends React.Component {
   constructor() {
@@ -20,7 +21,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
+    axios.get('/api/get_friends_list').then((response) => {
+      console.log(response.data.content)
+    })
   }
 
   render() {

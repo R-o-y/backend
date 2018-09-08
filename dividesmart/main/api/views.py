@@ -28,7 +28,7 @@ def parse_receipt(request):
 
 def get_friends_list(request):
     user = get_user(request)
-    friends = list(user.friends)
+    friends = list(user.friends.all())
     data = {
         'friends': friends
     }

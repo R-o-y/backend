@@ -140,19 +140,20 @@ class H5NumberInputExample extends React.Component {
     return (
       <div>
         <WhiteSpace size="lg" />
-        {/* <Tabs tabs={tabs}
+        <Tabs tabs={tabs}
           initialPage={1}
           onChange={(tab, index) => { console.log('onChange', index, tab); }}
           onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
         >
-          <div style={{ display: 'flex' }}>
+          <div>
             { tabOne }
+            {/* { tabTwo } */}
           </div>
 
-          <div style={{ display: 'flex' }}>
+          <div>
             { tabTwo }
           </div>
-        </Tabs> */}
+        </Tabs>
       </div>
     );
   }
