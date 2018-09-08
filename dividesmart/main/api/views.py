@@ -26,6 +26,7 @@ def parse_receipt(request):
         'content': content
     })
 
+
 def get_friends_list(request):
     user = get_user(request)
     friends = list(user.friends.all())
@@ -37,11 +38,12 @@ def get_friends_list(request):
 
 def get_debts_list(request):
     user = get_user(request)
-    debts = list(user.debts)
-    result_list = []
-    for debt in debts:
-        if not debt.clear:
-            result_list.append(debt)
+    result_list = list(user.debts.filter(clear=False))
+    # debts = list(user.debts)
+    # result_list = []
+    # for debt in debts:
+    #     if not debt.clear:
+    #         result_list.append(debt)
     data = {
         'debts': result_list
     }
@@ -50,7 +52,7 @@ def get_debts_list(request):
 
 def get_groups_list(request):
     user = get_user(request)
-    groups = list(user.groups)
+    groups = list(user.groups.all())
     data = {
         'groups': groups
     }
@@ -101,7 +103,7 @@ def get_friend_lends(request):
 def get_friend_borrows(request):
     user = get_user(request)
     friend_pk = request.GET['pk']
-    friend = User.objects.filter(id = friend_pk)
+    friend = User.objects.filter(id=friend_pk)
     debts = user.debts
     result_list = []
     for debt in debts:
@@ -168,3 +170,7 @@ def return_money(request):
     exchange.payer = debt.borrower
     exchange.payee = debt.lender
     exchange.amount = amount
+
+
+
+

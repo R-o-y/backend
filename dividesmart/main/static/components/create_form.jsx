@@ -139,7 +139,7 @@ class H5NumberInputExample extends React.Component {
 
     return (
       <div>
-        <WhiteSpace size="lg" />
+        {/* <WhiteSpace size="lg" />
         <Tabs tabs={tabs}
           initialPage={1}
           onChange={(tab, index) => { console.log('onChange', index, tab); }}
@@ -147,14 +147,74 @@ class H5NumberInputExample extends React.Component {
         >
           <div>
             { tabOne }
-            {/* { tabTwo } */}
           </div>
 
           <div>
             { tabTwo }
           </div>
-        </Tabs>
-      </div>
+        </Tabs> */}
+
+
+        <div>
+          <List>
+            <InputItem
+              {...getFieldProps('inputtitle2')}
+              placeholder="title can be icon，image or text"
+              extra="$"
+            >
+              <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
+            </InputItem>
+          </List>
+
+          <List>
+            <InputItem
+              {...getFieldProps('money3')}
+              type={type}
+              defaultValue={100}
+              placeholder="start from left"
+              clear
+              moneyKeyboardAlign="left"
+              moneyKeyboardWrapProps={moneyKeyboardWrapProps}
+            >Amount</InputItem>
+          </List>
+
+          <WhiteSpace size="lg" />
+          <List>
+            {data2.map(i => (
+              <RadioItem key={i.value} checked={this.state.value2 === i.value} onChange={() => this.onChange2(i.value)}>
+                {i.label}<List.Item.Brief>{i.extra}</List.Item.Brief>
+              </RadioItem>
+            ))}
+          </List>
+
+          <div>
+              <List renderHeader={() => 'CheckboxItem demo'}>
+              {this.state.data.map(i => (
+                  <CheckboxItem key={i.value}
+                    onChange={() => this.onChange(i.value)}
+                    extra={'$' + i.price}
+                  >
+                    {i.label}
+                  </CheckboxItem>
+                ))}
+              </List>
+              <ReceiptButton updateReceipt={this.updateReceipt}/>
+            </div>
+          </div>
+
+          <div className="sub-title">to be settled up</div>
+          <Result
+            img={myImg('HWuSTipkjJRfTWekgTUG')}
+            // title="等待处理"
+            message="to be settled up"
+          />
+
+
+          <WhiteSpace />
+          <WingBlank>
+            <Button type="primary">SAVE</Button>
+          </WingBlank>
+        </div>
     );
   }
 }
