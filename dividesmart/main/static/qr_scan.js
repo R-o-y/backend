@@ -19,17 +19,20 @@ class App extends Component {
     }
     this.handleScan = this.handleScan.bind(this)
   }
-  handleScan(data){
-    if (data){
+
+  handleScan(data) {
+    if (data) {
       this.setState({
         result: data,
       })
       window.location.href = data
     }
   }
+
   handleError(err){
     console.error(err)
   }
+
   render(){
     return(
       <div>
@@ -39,7 +42,7 @@ class App extends Component {
           onScan={this.handleScan}
           style={{ width: '100%' }}
           />
-        <p>{this.state.result}</p>
+        {/*<p>{this.state.result}</p>*/}
       </div>
     )
   }

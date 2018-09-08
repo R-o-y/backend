@@ -37,7 +37,7 @@ class DebtList extends React.Component {
           }
           multipleLine
           onClick={() => { window.location.href = '/u/1'}}
-          extra={'$10'}
+          extra={<span style={{ color: '#00b894' }}>$10</span>}
         >
           {/* <Badge>
             <span
@@ -65,7 +65,7 @@ class DebtList extends React.Component {
           }
           multipleLine
           onClick={() => { window.location.href = '/u/1'}}
-          extra={'$10'}
+          extra={<span style={{ color: '#00b894' }}>$10</span>}
         >
           Charlie <Brief>8/31/18</Brief>
         </Item>
@@ -84,7 +84,7 @@ class DebtList extends React.Component {
           }
           multipleLine
           onClick={() => { window.location.href = '/u/1'}}
-          extra={'$10'}
+          extra={<span style={{ color: '#00b894' }}>$10</span>}
         >
           Oscar <Brief>8/31/18</Brief>
         </Item>
@@ -116,7 +116,7 @@ class DebtList extends React.Component {
           }
           multipleLine
           onClick={() => { window.location.href = '/u/1'}}
-          extra={'$10'}
+          extra={<span style={{ color: '#e67e22' }}>$10</span>}
         >
           Harry <Brief>8/31/18</Brief>
         </Item>
@@ -135,7 +135,7 @@ class DebtList extends React.Component {
           }
           multipleLine
           onClick={() => { window.location.href = '/u/1'}}
-          extra={'$10'}
+          extra={<span style={{ color: '#e67e22' }}>$10</span>}
         >
           Charlie <Brief>8/31/18</Brief>
         </Item>
@@ -154,7 +154,7 @@ class DebtList extends React.Component {
           }
           multipleLine
           onClick={() => { window.location.href = '/u/1'}}
-          extra={'$10'}
+          extra={<span style={{ color: '#e67e22' }}>$10</span>}
         >
           Oscar <Brief>8/31/18</Brief>
         </Item>
