@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { TabBar, ListView } from 'antd-mobile';
 import { DebtList } from './debts_list.jsx'
-import { UserTab } from './user_tab.jsx'
+import { UserTab } from './user_tab3.jsx'
 
 
 class TabBarExample extends React.Component {

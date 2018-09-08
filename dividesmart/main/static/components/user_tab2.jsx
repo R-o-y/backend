@@ -73,16 +73,18 @@ class UserTab extends React.Component {
 
 
         </List>
+
+        <WhiteSpace />
         <List renderHeader={() => 'Debt List with Tom'} className="my-list">
-        <Item extra={'Debt'}>Date</Item>
-      </List>
+          {/*<Item extra={'Debt'}>Date</Item>*/}
+        </List>
         <List>
           <Item
             arrow="horizontal"
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'$10'}
+            extra={<span style={{ color: '#00b894' }}>$10</span>}
           >
             Lunch @ PGP<Brief>8/29/18</Brief>
           </Item>
@@ -91,7 +93,7 @@ class UserTab extends React.Component {
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'-$5'}
+            extra={<span style={{ color: '#e67e22' }}>-$5</span>}
           >
             Movie Night<Brief>8/30/18</Brief>
           </Item>
@@ -100,7 +102,7 @@ class UserTab extends React.Component {
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'$15'}
+            extra={<span style={{ color: '#00b894' }}>$15</span>}
           >
             Dinner Date <Brief>8/31/18</Brief>
           </Item>
@@ -109,7 +111,7 @@ class UserTab extends React.Component {
             // thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
             multipleLine
             onClick={() => {}}
-            extra={'$20'}
+            extra={<span style={{ color: '#00b894' }}>$20</span>}
           >
             <Brief>Overall</Brief>
           </Item>
@@ -118,6 +120,9 @@ class UserTab extends React.Component {
         <WhiteSpace />
         <WhiteSpace />
 
+
+        <Button type="primary" icon="check-circle-o">settle up</Button><WhiteSpace />
+        <WhiteSpace />
 
         {/* <WhiteSpace />
         <WhiteSpace />

@@ -80,7 +80,7 @@ class FlaoatingButton extends React.Component {
 
         var lines = []
         for (var line of response.data.content.split('\n')) {
-          if (line.match(/\d+\.\d+/g)) {
+          if (line.match(/\d+\.\d+/g) && parseFloat(line.match(/\d+\.\d+/g)[0]) != 0) {
             lines.push(line)
             console.log(line)
           }

@@ -59,9 +59,9 @@ class H5NumberInputExample extends React.Component {
     this.updateReceipt = (content) => {
       this.setState({
         data: [
-          { value: 0, label: 'Fish', price: '10' },
-          { value: 1, label: 'Egg', price: '6' },
-          { value: 2, label: 'Beef', price: '8' },
+          { value: 0, label: 'Shiquasa Mojito', price: '4.90' },
+          { value: 1, label: 'Cranberry Juice', price: '3.50' },
+          { value: 2, label: 'Mountain Monster Curry', price: '24.00' },
         ]
       })
     }
