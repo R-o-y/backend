@@ -25,7 +25,7 @@ if (isIPhone) {
 
 const data2 = [
   { value: 0, label: 'divide equally', extra: 'details' },
-  { value: 1, label: 'football', extra: 'details' },
+  { value: 1, label: 'specify amount', extra: 'details' },
 ];
 
 const tabs = [
