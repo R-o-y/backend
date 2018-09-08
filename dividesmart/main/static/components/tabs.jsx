@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { TabBar, ListView } from 'antd-mobile';
 import { DebtList } from './debts_list.jsx'
+import { UserTab } from './user_tab.jsx'
 
 
 class TabBarExample extends React.Component {
@@ -151,7 +152,7 @@ class TabBarExample extends React.Component {
               });
             }}
           >
-            <DebtList />
+            <UserTab />
           </TabBar.Item>
         </TabBar>
       </div>

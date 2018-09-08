@@ -41,8 +41,27 @@ class DebtList extends React.Component {
           thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
           multipleLine
           onClick={() => {}}
+          extra={'$10'}
         >
-          Title <Brief>subtitle</Brief>
+          Harry <Brief>8/31/18</Brief>
+        </Item>
+        <Item
+          arrow="horizontal"
+          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          multipleLine
+          onClick={() => {}}
+          extra={'$10'}
+        >
+          Charlie <Brief>8/31/18</Brief>
+        </Item>
+        <Item
+          arrow="horizontal"
+          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          multipleLine
+          onClick={() => {}}
+          extra={'$10'}
+        >
+          Oscar <Brief>8/31/18</Brief>
         </Item>
       </List>
       <List renderHeader={() => 'Customized Right Side（Empty Content / Text / Image）'} className="my-list">
@@ -72,7 +91,7 @@ class DebtList extends React.Component {
           My Cost Ratio
         </Item>
       </List>
-      <List renderHeader={() => 'Text Wrapping'} className="my-list">
+      {/* <List renderHeader={() => 'Text Wrapping'} className="my-list">
         <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>
         <Item wrap>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
         <Item extra="extra content" multipleLine align="top" wrap>
@@ -81,7 +100,7 @@ class DebtList extends React.Component {
         <Item extra="no arrow" arrow="empty" className="spe" wrap>
           In rare cases, the text of right side will wrap in the single line with long text. long text long text long text
         </Item>
-      </List>
+      </List> */}
       {/* <List renderHeader={() => 'Other'} className="my-list">
         <Item disabled={this.state.disabled} extra="" onClick={() => { console.log('click', this.state.disabled); this.setState({ disabled: true }); }}>Click to disable</Item>
         <Item>

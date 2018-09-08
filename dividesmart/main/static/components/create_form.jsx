@@ -3,12 +3,12 @@ import 'regenerator-runtime/runtime'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Result, List, InputItem, Icon, Card, WingBlank, WhiteSpace, Button, Checkbox, Flex } from 'antd-mobile';
+import { Tabs, Result, List, Radio, InputItem, Icon, Card, WingBlank, WhiteSpace, Button, Checkbox, Flex } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import ReceiptButton from './material/receipt_float_btn.jsx'
 import ListItem from 'antd-mobile/lib/list/ListItem';
 
-
+const RadioItem = Radio.RadioItem;
 const CheckboxItem = Checkbox.CheckboxItem;
 const AgreeItem = Checkbox.AgreeItem;
 const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" style={{ width: 60, height: 60 }} alt="" />;
@@ -22,16 +22,39 @@ if (isIPhone) {
   };
 }
 
+const data2 = [
+  { value: 0, label: 'divide equally', extra: 'details' },
+  { value: 1, label: 'football', extra: 'details' },
+];
+
+const tabs = [
+  { title: 'First Tab' },
+  { title: 'Second Tab' },
+];
+
+
 class H5NumberInputExample extends React.Component {
   constructor(props) {
     super()
     this.state = {
       type: 'money',
-      data: []
+      data: [],
+
+      value: 0,
+      value2: 0,
+      value3: 0,
+      value4: 0,
     }
     this.onChange = () => {
 
     }
+
+    this.onChange2 = (value) => {
+      console.log('checkbox');
+      this.setState({
+        value2: value,
+      });
+    };
     this.updateReceipt = (content) => {
       this.setState({
         data: [
@@ -44,12 +67,12 @@ class H5NumberInputExample extends React.Component {
   }
 
 
+
   render() {
     const { getFieldProps } = this.props.form;
     const { type } = this.state;
     return (
       <div>
-
         <List>
           <InputItem
             {...getFieldProps('inputtitle2')}
@@ -58,6 +81,23 @@ class H5NumberInputExample extends React.Component {
             <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
           </InputItem>
         </List>
+
+
+        <WhiteSpace size="lg" />
+        <WhiteSpace size="lg" />
+        <Tabs tabs={tabs}
+          initialPage={1}
+          onChange={(tab, index) => { console.log('onChange', index, tab); }}
+          onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+            Content of first tab
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+            Content of second tab
+          </div>
+        </Tabs>
+
         <List>
           <InputItem
             {...getFieldProps('money3')}
@@ -69,6 +109,17 @@ class H5NumberInputExample extends React.Component {
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
           >Amount</InputItem>
         </List>
+
+        <WhiteSpace size="lg" />
+        <List>
+          {data2.map(i => (
+            <RadioItem key={i.value} checked={this.state.value2 === i.value} onChange={() => this.onChange2(i.value)}>
+              {i.label}<List.Item.Brief>{i.extra}</List.Item.Brief>
+            </RadioItem>
+          ))}
+        </List>
+
+
 
         <div>
           <List renderHeader={() => 'CheckboxItem demo'}>

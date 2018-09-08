@@ -82,7 +82,7 @@ class FlaoatingButton extends React.Component {
         <Button
           variant="fab"
           className={classes.fab}
-          style={{bottom: 60, backgroundColor: 'dodgerblue'}}
+          style={{bottom: 66, backgroundColor: 'dodgerblue'}}
           onClick={() => window.location.href = '/form'}
         >
           <AddIcon style={{ color: 'white' }} />
