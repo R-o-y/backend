@@ -28,7 +28,7 @@ const data2 = [
 ];
 
 const tabs = [
-  { title: 'Type' },
+  { title: 'Type ' },
   { title: 'Scan Receipt' },
 ];
 
@@ -71,6 +71,9 @@ class H5NumberInputExample extends React.Component {
     const { type } = this.state;
     return (
       <div>
+        <WhiteSpace size="lg" />
+        <WhiteSpace size="lg" />
+
         <List>
           <InputItem
             {...getFieldProps('inputtitle2')}
@@ -80,10 +83,8 @@ class H5NumberInputExample extends React.Component {
           </InputItem>
         </List>
 
-
         <WhiteSpace size="lg" />
-        <WhiteSpace size="lg" />
-        <Tabs tabs={tabs}
+        {/* <Tabs tabs={tabs}
           initialPage={1}
           onChange={(tab, index) => { console.log('onChange', index, tab); }}
           onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
@@ -94,7 +95,7 @@ class H5NumberInputExample extends React.Component {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
             Content of second tab
           </div>
-        </Tabs>
+        </Tabs> */}
 
         <List>
           <InputItem

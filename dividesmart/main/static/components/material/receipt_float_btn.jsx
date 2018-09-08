@@ -86,7 +86,7 @@ class FlaoatingButton extends React.Component {
         <Button
           variant="fab"
           className={classes.fab}
-          style={{position: 'fixed', bottom: 60, backgroundColor: 'dodgerblue'}}
+          style={{position: 'fixed', bottom: 60, backgroundColor: 'dodgerblue', zIndex: 1000}}
           onClick={this.onClick}
         >
           <CameraAlt style={{ color: 'white' }} />
