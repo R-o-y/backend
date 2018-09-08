@@ -58,9 +58,9 @@ class H5NumberInputExample extends React.Component {
     this.updateReceipt = (content) => {
       this.setState({
         data: [
-          { value: 0, label: 'Fish', price: '10' },
-          { value: 1, label: 'Egg', price: '6' },
-          { value: 2, label: 'Beef', price: '8' },
+          { value: 0, label: 'Fish', price: '10.8' },
+          { value: 1, label: 'Egg', price: '6.6' },
+          { value: 2, label: 'Beef', price: '8.2' },
         ]
       })
     }
@@ -69,11 +69,9 @@ class H5NumberInputExample extends React.Component {
   render() {
     const { getFieldProps } = this.props.form;
     const { type } = this.state;
-    return (
-      <div>
-        <WhiteSpace size="lg" />
-        <WhiteSpace size="lg" />
 
+    const tabOne = (
+      <div>
         <List>
           <InputItem
             {...getFieldProps('inputtitle2')}
@@ -83,20 +81,6 @@ class H5NumberInputExample extends React.Component {
             <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
           </InputItem>
         </List>
-
-        <WhiteSpace size="lg" />
-        {/* <Tabs tabs={tabs}
-          initialPage={1}
-          onChange={(tab, index) => { console.log('onChange', index, tab); }}
-          onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-            Content of first tab
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-            Content of second tab
-          </div>
-        </Tabs> */}
 
         <List>
           <InputItem
@@ -121,26 +105,6 @@ class H5NumberInputExample extends React.Component {
 
 
 
-        <div>
-          <List renderHeader={() => 'CheckboxItem demo'}>
-            {this.state.data.map(i => (
-              <CheckboxItem key={i.value}
-                onChange={() => this.onChange(i.value)}
-                extra={'$' + i.price}
-              >
-                {i.label}
-              </CheckboxItem>
-            ))}
-            <CheckboxItem
-              key="disabled"
-              data-seed="logId" disabled defaultChecked multipleLine>
-              Undergraduate
-              <List.Item.Brief>Auxiliary text</List.Item.Brief>
-            </CheckboxItem>
-          </List>
-        </div>
-
-
         <div className="sub-title">to be settled up</div>
         <Result
           img={myImg('HWuSTipkjJRfTWekgTUG')}
@@ -148,28 +112,47 @@ class H5NumberInputExample extends React.Component {
           message="to be settled up"
         />
 
-        <WhiteSpace />
-        <WhiteSpace />
+
         <WhiteSpace />
         <WingBlank>
           <Button type="primary">SAVE</Button>
         </WingBlank>
+      </div>
+    )
+
+    const tabTwo = (
+      <div>
+        <List renderHeader={() => 'CheckboxItem demo'}>
+        {this.state.data.map(i => (
+            <CheckboxItem key={i.value}
+              onChange={() => this.onChange(i.value)}
+              extra={'$' + i.price}
+            >
+              {i.label}
+            </CheckboxItem>
+          ))}
+        </List>
         <ReceiptButton updateReceipt={this.updateReceipt}/>
-        {/* <WingBlank size="lg">
-          <WhiteSpace size="lg" />
-          <Card>
-            <Card.Header
-              title="This is title"
-              thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
-              extra={<span>this is extra</span>}
-            />
-            <Card.Body>
-              <div>This is content of `Card`</div>
-            </Card.Body>
-            <Card.Footer content="footer content" extra={<div>extra footer content</div>} />
-          </Card>
-          <WhiteSpace size="lg" />
-        </WingBlank> */}
+      </div>
+    )
+
+
+    return (
+      <div>
+        <WhiteSpace size="lg" />
+        {/* <Tabs tabs={tabs}
+          initialPage={1}
+          onChange={(tab, index) => { console.log('onChange', index, tab); }}
+          onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
+        >
+          <div style={{ display: 'flex' }}>
+            { tabOne }
+          </div>
+
+          <div style={{ display: 'flex' }}>
+            { tabTwo }
+          </div>
+        </Tabs> */}
       </div>
     );
   }

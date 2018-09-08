@@ -10,7 +10,7 @@ class UserTab extends React.Component {
     return (
       <div>
         <List>
-          <List.Item extra="extra content" arrow="horizontal">
+          <List.Item extra="extra content">
             <Badge>
               <span
                 style={{
@@ -35,12 +35,12 @@ class UserTab extends React.Component {
           <List.Item className="special-badge" extra={<Badge text={'促'} />}>
             Custom corner
           </List.Item> */}
-          <List.Item extra="12345678" arrow="horizontal">
+          <List.Item extra="12345678">
             <Badge text={0} style={{ marginLeft: 12 }}>Phone number</Badge>
             {/* <Badge text={'new'} style={{ marginLeft: 12 }} /> */}
           </List.Item>
 
-          <List.Item extra="test@test.com" arrow="horizontal">
+          <List.Item extra="test@test.com">
             <Badge text={0} style={{ marginLeft: 12 }}>Email address</Badge>
             {/* <Badge text={'new'} style={{ marginLeft: 12 }} /> */}
           </List.Item>

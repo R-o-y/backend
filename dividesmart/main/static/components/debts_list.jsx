@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime'
 
 import React from 'react'
-import { List } from 'antd-mobile';
+import { List, Badge } from 'antd-mobile';
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -22,10 +22,75 @@ class DebtList extends React.Component {
   render() {
     return (<div>
       <List renderHeader={() => 'Other people owe you'} className="my-list">
-        <Item extra={'extra content'}>Title</Item>
+      <Item
+          arrow="horizontal"
+          thumb={
+            <Badge>
+              <span
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'url(https://cactusthemes.com/blog/wp-content/uploads/2018/01/tt_avatar_small.jpg) center center /  48px 48px no-repeat',
+                  display: 'inline-block' }}
+              />
+            </Badge>
+          }
+          multipleLine
+          onClick={() => {}}
+          extra={'$10'}
+        >
+          {/* <Badge>
+            <span
+              style={{
+                width: '48px',
+                height: '48px',
+                background: 'url(https://cactusthemes.com/blog/wp-content/uploads/2018/01/tt_avatar_small.jpg) center center /  48px 48px no-repeat',
+                display: 'inline-block' }}
+            />
+          </Badge> */}
+          Harry <Brief>8/31/18</Brief>
+        </Item>
+        <Item
+          arrow="horizontal"
+          thumb={
+            <Badge>
+              <span
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'url(https://www.shareicon.net/data/256x256/2016/07/05/791216_people_512x512.png) center center /  48px 48px no-repeat',
+                  display: 'inline-block' }}
+              />
+            </Badge>
+          }
+          multipleLine
+          onClick={() => {}}
+          extra={'$10'}
+        >
+          Charlie <Brief>8/31/18</Brief>
+        </Item>
+        <Item
+          arrow="horizontal"
+          thumb={
+            <Badge>
+              <span
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'url(https://www.osustuff.org/img/avatars/2017-04-22/211652.jpg) center center /  48px 48px no-repeat',
+                  display: 'inline-block' }}
+              />
+            </Badge>
+          }
+          multipleLine
+          onClick={() => {}}
+          extra={'$10'}
+        >
+          Oscar <Brief>8/31/18</Brief>
+        </Item>
       </List>
       <List renderHeader={() => 'You owe other people'} className="my-list">
-        <Item arrow="horizontal" multipleLine onClick={() => {}}>
+        {/* <Item arrow="horizontal" multipleLine onClick={() => {}}>
           Title <Brief>subtitle</Brief>
         </Item>
         <Item
@@ -35,10 +100,20 @@ class DebtList extends React.Component {
           platform="android"
         >
           ListItem （Android）<Brief>There may have water ripple effect of <br /> material if you set the click event.</Brief>
-        </Item>
+        </Item> */}
         <Item
           arrow="horizontal"
-          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          thumb={
+            <Badge>
+              <span
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'url(https://cactusthemes.com/blog/wp-content/uploads/2018/01/tt_avatar_small.jpg) center center /  48px 48px no-repeat',
+                  display: 'inline-block' }}
+              />
+            </Badge>
+          }
           multipleLine
           onClick={() => {}}
           extra={'$10'}
@@ -47,7 +122,17 @@ class DebtList extends React.Component {
         </Item>
         <Item
           arrow="horizontal"
-          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          thumb={
+            <Badge>
+              <span
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'url(https://www.shareicon.net/data/256x256/2016/07/05/791216_people_512x512.png) center center /  48px 48px no-repeat',
+                  display: 'inline-block' }}
+              />
+            </Badge>
+          }
           multipleLine
           onClick={() => {}}
           extra={'$10'}
@@ -56,7 +141,17 @@ class DebtList extends React.Component {
         </Item>
         <Item
           arrow="horizontal"
-          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          thumb={
+            <Badge>
+              <span
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'url(https://www.osustuff.org/img/avatars/2017-04-22/211652.jpg) center center /  48px 48px no-repeat',
+                  display: 'inline-block' }}
+              />
+            </Badge>
+          }
           multipleLine
           onClick={() => {}}
           extra={'$10'}

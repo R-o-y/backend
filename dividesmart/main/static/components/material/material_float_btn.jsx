@@ -32,17 +32,21 @@ const styles = theme => ({
 
 
 class FlaoatingButton extends React.Component {
-  state = {
-    value: 0,
-  };
+  constructor() {
+    super()
+    this.state = {
+      value: 0,
+    };
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
+    this.handleChange = (event, value) => {
+      this.setState({ value });
+    };
 
-  handleChangeIndex = index => {
-    this.setState({ value: index });
-  };
+    this.handleChangeIndex = index => {
+      this.setState({ value: index });
+    };
+
+  }
 
   render() {
     const { classes, theme } = this.props;

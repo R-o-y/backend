@@ -1,5 +1,5 @@
 
-import Button from '@material-ui/core/Button';
+import MButton from '@material-ui/core/Button';
 import 'regenerator-runtime/runtime'
 import { getCookie } from 'util.js'
 import React from 'react'
@@ -12,6 +12,8 @@ import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import green from '@material-ui/core/colors/green';
 import axios from 'axios'
 
+import {ActionSheet, WingBlank, WhiteSpace, Button, Toast} from 'antd-mobile'
+let wrapProps;
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
@@ -48,7 +50,19 @@ class FlaoatingButton extends React.Component {
     };
 
     this.onClick = () => {
-      this.finput.click()
+        const BUTTONS = ['Take photo', 'Select photo', 'Cancel'];
+        ActionSheet.showActionSheetWithOptions({
+          options: BUTTONS,
+          cancelButtonIndex: BUTTONS.length - 1,
+          // destructiveButtonIndex: BUTTONS.length - 2,
+          maskClosable: true,
+          'data-seed': 'logId',
+          wrapProps,
+        },
+        (buttonIndex) => {
+          if (buttonIndex == 1)
+            this.finput.click()
+        });
     }
 
     this.handleFiles = () => {
@@ -83,14 +97,14 @@ class FlaoatingButton extends React.Component {
           type={'file'}
           onChange={async () => this.handleFiles()}>
         </input>
-        <Button
+        <MButton
           variant="fab"
           className={classes.fab}
           style={{position: 'fixed', bottom: 60, backgroundColor: 'dodgerblue', zIndex: 1000}}
           onClick={this.onClick}
         >
           <CameraAlt style={{ color: 'white' }} />
-        </Button>
+        </MButton>
         {/* <p style={{ whiteSpace: 'pre' }}>{this.state.content}</p> */}
       </div>
     );
