@@ -8,8 +8,16 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 
 
-
 def display_index(request):
     return render(request, 'main/index.html')
+
+
+def display_form(request):
+    return render(request, 'main/form.html')
+
+
+def display_qr_scanner(request):
+    return render(request, 'main/qr_scanner.html')
+
 
 
