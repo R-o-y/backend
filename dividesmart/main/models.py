@@ -46,6 +46,7 @@ class UserManager(BaseUserManager):
 
         return self._create_user(nickname, email_address, password, **extra_fields)
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     nickname = models.CharField(max_length=254)
 
@@ -112,12 +113,14 @@ class Group(models.Model):
     debts = models.ManyToManyField("Debt", related_name="group_debts", blank=True, symmetrical=False)
     exchanges = models.ManyToManyField("Exchange", related_name="group_exchanges", blank=True, symmetrical=False)
 
+
 class Debt(models.Model):
     lender = models.ForeignKey(User, related_name="debt_lender", on_delete=models.CASCADE)
     borrower = models.ForeignKey(User, related_name="debt_borrower", on_delete=models.CASCADE)
     amount = models.FloatField()
     date_created = models.DateTimeField(default=timezone.now)
     clear = models.BooleanField(default=False)
+
 
 class Exchange(models.Model):
     payer = models.ForeignKey(User, related_name="debt_payer", on_delete=models.CASCADE)
